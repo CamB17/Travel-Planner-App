@@ -64,7 +64,7 @@ export default class Login extends Component {
 				</View>
 				<View style={styles.signup}>
 					<TouchableOpacity style={styles.signupButton}>
-						<Text style={styles.signupButtonText}>Sign Up</Text>
+						<Text style={styles.signupButtonText}>Create Account</Text>
 					</TouchableOpacity>
 				</View>
 			</ViewContainer>

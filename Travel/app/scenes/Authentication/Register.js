@@ -25,16 +25,23 @@ export default class Login extends Component {
 		return (
 			<ViewContainer>
 				<StatusbarBackground />
+
+				<View style={styles.logoReg}>
+					<Image source={require('../../resources/Smart_Travels.png')}/>
+				</View>
 				
-				<View>
+				<View style={styles.inputButton}>
 					<TextInput 
 						style = {styles.textInput}
 						onChangeText = {(text) => this.setState({email: text})}
 						value={(this.state.email)}
 						placeholder="Email"
 						placeholderTextColor="black"
+						autoCorrect={false}
+						returnKeyType="next" //Keyboard "next" to go to password input line
+						keyboardAppearance="dark"
 					/>
-						<View style={styles.hairline} />
+					<View style={styles.hairline} />
 					
 					<TextInput 
 						style = {styles.textInput}
@@ -43,9 +50,30 @@ export default class Login extends Component {
 						placeholder="Password"
 						placeholderTextColor="black"
 						secureTextEntry={true}
+						autoCorrect={false}
+						returnKeyType="go" //Keyboard "go" to take to homepage
+						keyboardAppearance="dark"
 					/>
-						<View style={styles.hairline} />
-				
+					<View style={styles.hairline} />
+
+					<TextInput 
+						style = {styles.textInput}
+						onChangeText = {(text) => this.setState({password: text})}
+						value={(this.state.password)} 
+						placeholder="Password"
+						placeholderTextColor="black"
+						secureTextEntry={true}
+						autoCorrect={false}
+						returnKeyType="go" //Keyboard "go" to take to homepage
+						keyboardAppearance="dark"
+					/>
+					<View style={styles.hairline} />
+				</View>
+
+				<View style={styles.login}>
+					<TouchableOpacity style={styles.loginButton}>
+						<Text style={styles.loginButtonText}>Create Account</Text>
+					</TouchableOpacity>
 				</View>
 			</ViewContainer>
 		)

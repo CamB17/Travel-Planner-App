@@ -1,13 +1,20 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
+
 	logo: {
 		alignItems: 'center',
 		marginTop: 160,
-		marginBottom: 125,
+		marginBottom: 115,
+	},
+	logoReg: {
+		alignItems: 'center',
+		marginTop: 130,
+		marginBottom: 115,
+
 	},
 	inputbuttons: {
-		marginBottom: 80
+		marginBottom: 60
 	},
 	login: {
 		paddingLeft: 40,
@@ -19,10 +26,11 @@ export const styles = StyleSheet.create({
 		height: 40,
 		borderRadius: 20,
 		overflow: 'hidden',
-		alignItems: 'center'
+		alignItems: 'center',
+		marginTop: 30,
 	},
 	loginButtonText: {
-		padding: 12
+		padding: 11,
 	},
 	signup: {
 		alignItems: 'center'
