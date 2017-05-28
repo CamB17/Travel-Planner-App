@@ -4,12 +4,12 @@ import {
 	View,
 	Stylesheet
 } from 'react-native'
-import Authentication from './scenes/Authentication'
+import Login from './scenes/Authentication/Login'
 
 export default class App extends Component {
 	render() {
 		return (
-			<Authentication />
+			<Login />
 		)
 	}
 }

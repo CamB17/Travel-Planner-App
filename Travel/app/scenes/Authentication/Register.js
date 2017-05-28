@@ -3,12 +3,15 @@ import {
 	Text,
 	View,
 	StyleSheet,
-	TextInput
+	TextInput,
+	TouchableOpacity,
+	Image
 } from 'react-native'
-import ViewContainer from '../components/ViewContainer'
-import StatusbarBackground from '../components/StatusbarBackground'
+import ViewContainer from '../../components/ViewContainer'
+import StatusbarBackground from '../../components/StatusbarBackground'
+import { styles } from './styles'
 
-export default class Authentication extends Component {
+export default class Login extends Component {
 	constructor(props) {
 		super(props)
 
@@ -17,10 +20,12 @@ export default class Authentication extends Component {
 			password: ''
 		}
 	}
+	
 	render() {
 		return (
 			<ViewContainer>
 				<StatusbarBackground />
+				
 				<View>
 					<TextInput 
 						style = {styles.textInput}
@@ -28,7 +33,7 @@ export default class Authentication extends Component {
 						value={(this.state.email)}
 						placeholder="Email"
 						placeholderTextColor="black"
-						/>
+					/>
 						<View style={styles.hairline} />
 					
 					<TextInput 
@@ -38,27 +43,11 @@ export default class Authentication extends Component {
 						placeholder="Password"
 						placeholderTextColor="black"
 						secureTextEntry={true}
-						/>
+					/>
 						<View style={styles.hairline} />
+				
 				</View>
 			</ViewContainer>
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	textInput: {
-		height: 40,
-		paddingLeft: 20,
-		paddingRight: 20,
-		textAlignVertical: 'bottom',
-		fontSize: 12,
-		
-	},
-	hairline: {
-		height: 1,
-		backgroundColor: 'black',
-		marginLeft: 20,
-		marginRight: 20
-	}
-})
