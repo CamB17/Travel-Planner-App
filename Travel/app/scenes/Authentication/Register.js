@@ -17,7 +17,8 @@ export default class Login extends Component {
 
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
+			verifyPassword: ''
 		}
 	}
 	
@@ -58,8 +59,8 @@ export default class Login extends Component {
 
 					<TextInput 
 						style = {styles.textInput}
-						onChangeText = {(text) => this.setState({password: text})}
-						value={(this.state.password)} 
+						onChangeText = {(text) => this.setState({verifyPassword: text})}
+						value={(this.state.verifyPassword)} 
 						placeholder="Password"
 						placeholderTextColor="black"
 						secureTextEntry={true}
