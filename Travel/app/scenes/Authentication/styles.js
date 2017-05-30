@@ -32,12 +32,12 @@ export const styles = StyleSheet.create({
 	loginButtonText: {
 		padding: 11,
 	},
-	signup: {
+	register: {
 		alignItems: 'center',
 	},
-	signupButton: {
+	registerButton: {
 	},
-	signupButtonText: {
+	registerButtonText: {
 
 	},
 	textInput: {

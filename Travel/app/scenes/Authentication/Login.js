@@ -7,6 +7,7 @@ import {
 	TouchableOpacity,
 	Image
 } from 'react-native'
+
 import ViewContainer from '../../components/ViewContainer'
 import StatusbarBackground from '../../components/StatusbarBackground'
 import _ from 'lodash'
@@ -21,11 +22,10 @@ export default class Login extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			status: ''
 		}
 
 		this._login    = this._login.bind(this)
-		this._signup = this._signup.bind(this)
+		this._register = this._register.bind(this)
 	}
 	//_ because it is a private function
 	_login() {
@@ -34,10 +34,13 @@ export default class Login extends Component {
 			console.log(error.code)
 			console.log(error.message)
 		})
+		
+		Actions.pagecontrol()
+
 	}
 
-	_signup() {
-		Actions.signup()
+	_register() {
+		Actions.register()
 	}
 
 	_onFocus() {
@@ -88,9 +91,9 @@ export default class Login extends Component {
 					</TouchableOpacity>
 				</View>
 				
-				<View style={styles.signup}>
-					<TouchableOpacity style={styles.signupButton} onPress={this._signup}>
-						<Text style={styles.signupButtonText}>Create Account</Text>
+				<View style={styles.register}>
+					<TouchableOpacity style={styles.registerButton} onPress={this._register}>
+						<Text style={styles.registerButtonText}>Create Account</Text>
 					</TouchableOpacity>
 				</View>
 			</ViewContainer>

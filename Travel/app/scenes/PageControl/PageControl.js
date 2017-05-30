@@ -6,7 +6,7 @@ import {
 	StyleSheet,
 	ScrollView
 } from 'react-native'
-import PageControlIOS from 'react-native-pagecontrol'
+import PageControlIOS from 'react-native-page-control'
 import ViewContainer from '../../components/ViewContainer'
 import StatusbarBackground from '../../components/StatusbarBackground'
 import Profile from '../Profile'
@@ -21,12 +21,12 @@ export default class PageControl extends Component {
 			width: Dimensions.get('window').width
 		}
 
-		this._onPageControlValueChange = this._onPageControlViewChange.bind(this)
+		this._onPageControlValueChange = this._onPageControlValueChange.bind(this)
 		this._onScroll = this._onScroll.bind(this)
 	}
 
 	_onPageControlValueChange(currentPage) {
-		this.refs.Scrollview.scrollResponderScrollTo({x: this.state.width * currentPage, y: 0, animated: true});
+		this.refs.ScrollView.scrollResponderScrollTo({x: this.state.width * currentPage, y: 0, animated: true});
 	}
 
 	_onScroll({nativeEvent}) {
@@ -38,18 +38,18 @@ export default class PageControl extends Component {
 	}
 
 	render () {
-		return {
+		return (
 			<ViewContainer>
 				<StatusbarBackground />
 
-				<View style={styles.scrollViewContainer}
+				<View style={styles.scrollViewContainer}>
 					<ScrollView
 						horizontal={true}
 						ref='ScrollView'
-						onScroll={this._onScroll}>
+						onScroll={this._onScroll}
 						pagingEnabled={true}
-						showHorizontalScrollIndicator={false}
-					>
+						showHorizontalScrollIndicator={false}>
+	
 						<View style={[styles.scrollScene, {width: this.state.width}]}>
 							<Discover />
 						</View>

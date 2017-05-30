@@ -7,12 +7,14 @@ import {
 	TouchableOpacity,
 	Image
 } from 'react-native'
+
 import ViewContainer from '../../components/ViewContainer'
 import StatusbarBackground from '../../components/StatusbarBackground'
 import { styles } from './styles'
 import { firebaseRef } from '../../services/Firebase'
+import { Actions } from 'react-native-router-flux'
 
-export default class Login extends Component {
+export default class Register extends Component {
 	constructor(props) {
 		super(props)
 
@@ -24,7 +26,7 @@ export default class Login extends Component {
 	
 		this._register = this._register.bind(this)
 	}
-	//Function to set up new user and verify both passwords as being matched
+
 	_register() {
 			if (this.state.password == this.state.verifyPassword) {
 			firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
@@ -32,6 +34,8 @@ export default class Login extends Component {
 				console.log(error.code)
 				console.log(error.message)
 			})
+
+			Actions.pagecontrol()
 		} else {
 			console.log("Password did not match");
 		}
@@ -86,8 +90,8 @@ export default class Login extends Component {
 				</View>
 
 				<View style={styles.register}>
-					<TouchableOpacity style={styles.loginButton} onPress={this._register}>
-						<Text style={styles.loginButtonText}>Create Account</Text>
+					<TouchableOpacity style={styles.registerButton} onPress={this._register}>
+						<Text style={styles.registerButtonText}>Create Account</Text>
 					</TouchableOpacity>
 				</View>
 			</ViewContainer>

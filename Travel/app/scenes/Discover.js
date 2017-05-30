@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import ViewContainer from '../components/ViewContainer'
 import StatusbarBackground from '../components/StatusbarBackground'
-import ListItem from '../components/ListItem'
+//import ListItem from '../../components/ListItem'
 
 export default class Discover extends Component {
 	constructor(props) {
@@ -24,17 +24,16 @@ export default class Discover extends Component {
 
 	_renderRow(rowData: string, rowID: number) {
 		<Text>
-			{rowdata.name}
+			{rowData.name}
 		</Text>
 	}
 
 	render () {
-		return {
+		return (
 			<ViewContainer>
 				<StatusbarBackground />
-					<Text>
-						Discover View
-					</Text>
+					<Text>Current Trips</Text>
+						
 						{/* <ListView
 						dataSource={this.state.dataSource}
 						renderRow={this._renderRow}
