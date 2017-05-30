@@ -10,6 +10,7 @@ import {
 import ViewContainer from '../../components/ViewContainer'
 import StatusbarBackground from '../../components/StatusbarBackground'
 import { styles } from './styles'
+import { firebaseRef } from '../../services/Firebase'
 
 export default class Login extends Component {
 	constructor(props) {
@@ -19,6 +20,20 @@ export default class Login extends Component {
 			email: '',
 			password: '',
 			verifyPassword: ''
+		}
+	
+		this._register = this._register.bind(this)
+	}
+	//Function to set up new user and verify both passwords as being matched
+	_register() {
+			if (this.state.password == this.state.verifyPassword) {
+			firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+				//Handle errors here
+				console.log(error.code)
+				console.log(error.message)
+			})
+		} else {
+			console.log("Password did not match");
 		}
 	}
 	
@@ -52,8 +67,8 @@ export default class Login extends Component {
 						placeholderTextColor="black"
 						secureTextEntry={true}
 						autoCorrect={false}
-						returnKeyType="go" //Keyboard "go" to take to homepage
 						keyboardAppearance="dark"
+						autoCapitalize="none"
 					/>
 					<View style={styles.hairline} />
 
@@ -61,18 +76,17 @@ export default class Login extends Component {
 						style = {styles.textInput}
 						onChangeText = {(text) => this.setState({verifyPassword: text})}
 						value={(this.state.verifyPassword)} 
-						placeholder="Password"
+						placeholder="Verify Password"
 						placeholderTextColor="black"
 						secureTextEntry={true}
-						autoCorrect={false}
-						returnKeyType="go" //Keyboard "go" to take to homepage
 						keyboardAppearance="dark"
+						autoCapitalize="none"
 					/>
 					<View style={styles.hairline} />
 				</View>
 
-				<View style={styles.login}>
-					<TouchableOpacity style={styles.loginButton}>
+				<View style={styles.register}>
+					<TouchableOpacity style={styles.loginButton} onPress={this._register}>
 						<Text style={styles.loginButtonText}>Create Account</Text>
 					</TouchableOpacity>
 				</View>

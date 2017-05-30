@@ -33,7 +33,9 @@ export const styles = StyleSheet.create({
 		padding: 11,
 	},
 	signup: {
-		alignItems: 'center'
+		alignItems: 'center',
+	},
+	signupButton: {
 	},
 	signupButtonText: {
 
